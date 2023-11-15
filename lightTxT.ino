@@ -1,2 +1,2 @@
 void setup() {}
-void loop() P{}
+void loop() {}
