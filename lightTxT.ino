@@ -17,5 +17,4 @@ void loop()
   Serial.print("OFF "); // NodeMCU ส่งคำว่า "OFF "
   Serial.println("LED"); // NodeMCU ส่งคำว่า "LED"
   delay(2000); // ดีเลย์ 2000 มิลลิวินาที
-
 }
