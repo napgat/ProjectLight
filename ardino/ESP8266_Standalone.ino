@@ -10,47 +10,25 @@
 char ssid[] = "iPhone XR";
 char pass[] = "Net~1234";
 
-  BLYNK_WRITE(V0)
-{   
-  int value = param.asInt();
-  Serial.println(value);
-    if(value == 1){
-     digitalWrite(D0,HIGH);
-    }else{
-      digitalWrite(D0,LOW);
-      }
-}
-  BLYNK_WRITE(V1)
-{   
-  int value = param.asInt();
-  Serial.println(value);
-    if(value == 1){
-     digitalWrite(D1,HIGH);
-    }else{
-      digitalWrite(D1,LOW);
-      }
-}
-  BLYNK_WRITE(V2)
-{   
-  int value = param.asInt();
-  Serial.println(value);
-    if(value == 1){
-     digitalWrite(D2,HIGH);
-    }else{
-      digitalWrite(D2,LOW);
-      }
-}
+const int relay = 5;
 
 void setup()
 {
-  
-  Serial.begin(9600);
-
+  Serial.begin(115200);
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
-   pinMode(D0,OUTPUT);
-  pinMode(D1,OUTPUT);
-  pinMode(D2,OUTPUT);
+  pinMode(relay,OUTPUT);
 }
+
+  BLYNK_WRITE(V0) {   
+  int value = param.asInt();
+  Serial.println(value);
+    if(value == 1){
+     digitalWrite(relay,LOW);
+    }else{
+      digitalWrite(relay,HIGH);
+    }
+  }
+
 
 void loop()
 {
